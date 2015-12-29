@@ -10,6 +10,7 @@ import Foundation
 
 var _currentUser: User?
 let USER_KEY = "CURRENT_USER"
+let USER_TOKEN_KEY = "CURRENT_USER_TOKEN"
 
 class User: NSObject {
     var id: String?
@@ -41,6 +42,16 @@ class User: NSObject {
         }
     }
     
+    class var currentToken: String? {
+        get{
+            let data = NSUserDefaults.standardUserDefaults().objectForKey(USER_TOKEN_KEY) as? String
+        
+            return data
+        }
+        set(newToken){
+            NSUserDefaults.standardUserDefaults().setObject(newToken, forKey: USER_TOKEN_KEY)
+        }
+    }
     // Save curent user
     class var currentUser: User? {
         get {

@@ -39,10 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func doLogin(email: String, password: String) -> () {
         XEEMService.sharedInstance.login(email, passwd: password) { (token, error) -> () in
             if let token = token {
+                User.currentToken = token
                 XEEMService.sharedInstance.getUserProfile(token) { (user, error) -> () in
                     print(user)
                     if let user = user {
                         User.currentUser = user
+                        
                         
                         // create viewController code...
                         self.goToMainPage()

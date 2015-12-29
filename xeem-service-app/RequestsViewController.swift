@@ -16,18 +16,18 @@ class RequestsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        getModel()
+        
         tableView.dataSource = self
         tableView.delegate = self
-        
+        getModel()
     }
 
     func getModel() {
-        let token = User.currentUser?.token
+        let token = User.currentToken
         
         XEEMService.getShopsByOwnerId(token!) { (shops, error) -> Void in
             self.shops = shops
-            
+            self.tableView.reloadData()
         }
     }
     
@@ -40,15 +40,23 @@ class RequestsViewController: UIViewController {
 extension RequestsViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if shops == nil {
+            return 0
+        }
+        
         return (shops![section].requests?.count)!
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if shops == nil {
+            return 0
+        }
+        
         return shops!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("HistoryCell") as! RequestTableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("RequestCell") as! RequestTableViewCell
         
         cell.model = shops[indexPath.section].requests![indexPath.row]
         

@@ -10,12 +10,17 @@ import UIKit
 
 class RequestTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var avatarImage: UIView!
-    @IBOutlet weak var nameLabel: UIView!
-    @IBOutlet weak var requestTypeLabel: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var userAvatarImage: UIImageView!
     
-    var model: Request!
+    @IBOutlet weak var timeLabel: UILabel!
+    var model: Request! {
+        didSet{
+            nameLabel.text = "Ken Hoang"
+            timeLabel.text = "1 seconds ago"
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

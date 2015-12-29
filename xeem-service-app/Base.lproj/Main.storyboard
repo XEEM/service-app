@@ -21,41 +21,56 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="lix-Mr-2r3" customClass="RequestTableViewCell" customModule="xeem_service_app" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestCell" rowHeight="96" id="lix-Mr-2r3" customClass="RequestTableViewCell" customModule="xeem_service_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lix-Mr-2r3" id="ixt-Q8-KnF">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ken Hoang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzL-Xq-sQI">
-                                                    <rect key="frame" x="90" y="8" width="107" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ken Hoang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzL-Xq-sQI">
+                                                    <rect key="frame" x="90" y="4" width="84" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Out of gas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlJ-dA-M3d">
-                                                    <rect key="frame" x="90" y="27" width="107" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ed-b2-Ut1">
+                                                    <rect key="frame" x="261" y="4" width="51" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hTO-Hh-Ad4">
-                                                    <rect key="frame" x="8" y="4" width="74" height="67"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hTO-Hh-Ad4">
+                                                    <rect key="frame" x="8" y="4" width="74" height="74"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="74" id="MXc-F5-iTi"/>
+                                                        <constraint firstAttribute="width" constant="74" id="b4E-9q-fjn"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ed-b2-Ut1">
-                                                    <rect key="frame" x="252" y="8" width="60" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out of gas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlJ-dA-M3d">
+                                                    <rect key="frame" x="90" y="29" width="80" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="6ed-b2-Ut1" secondAttribute="trailing" constant="8" id="8FB-ft-ubm"/>
+                                                <constraint firstItem="MlJ-dA-M3d" firstAttribute="top" secondItem="rzL-Xq-sQI" secondAttribute="bottom" constant="4" id="BHI-lB-tK7"/>
+                                                <constraint firstItem="rzL-Xq-sQI" firstAttribute="top" secondItem="hTO-Hh-Ad4" secondAttribute="top" id="E1b-Vv-tRZ"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hTO-Hh-Ad4" secondAttribute="bottom" constant="8" id="Hp6-dT-64C"/>
+                                                <constraint firstItem="6ed-b2-Ut1" firstAttribute="top" secondItem="hTO-Hh-Ad4" secondAttribute="top" id="ahB-7v-Sk0"/>
+                                                <constraint firstItem="MlJ-dA-M3d" firstAttribute="leading" secondItem="rzL-Xq-sQI" secondAttribute="leading" id="fLF-oc-4wz"/>
+                                                <constraint firstItem="rzL-Xq-sQI" firstAttribute="leading" secondItem="hTO-Hh-Ad4" secondAttribute="trailing" constant="8" id="qKA-vb-BYb"/>
+                                                <constraint firstItem="hTO-Hh-Ad4" firstAttribute="leading" secondItem="ixt-Q8-KnF" secondAttribute="leading" constant="8" id="rIC-ox-Bwa"/>
+                                                <constraint firstItem="hTO-Hh-Ad4" firstAttribute="top" secondItem="ixt-Q8-KnF" secondAttribute="top" constant="4" id="wqO-cq-Hrf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="avatarImage" destination="ixt-Q8-KnF" id="8su-5n-tZO"/>
-                                            <outlet property="nameLabel" destination="ixt-Q8-KnF" id="Cmv-kG-4Uo"/>
-                                            <outlet property="requestTypeLabel" destination="ixt-Q8-KnF" id="hLW-zT-NCM"/>
-                                            <outlet property="timeLabel" destination="6ed-b2-Ut1" id="xUb-c2-BYJ"/>
+                                            <outlet property="nameLabel" destination="rzL-Xq-sQI" id="iPb-Fp-gwY"/>
+                                            <outlet property="timeLabel" destination="6ed-b2-Ut1" id="9bZ-Ub-fNt"/>
+                                            <outlet property="typeLabel" destination="MlJ-dA-M3d" id="h8x-jz-FaN"/>
+                                            <outlet property="userAvatarImage" destination="hTO-Hh-Ad4" id="70S-pL-wKf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
