@@ -13,5 +13,6 @@ target 'xeem-service-app' do
   pod 'DateTools'
   pod 'FontAwesome.swift'
   pod 'SwiftDate', '~> 2.0'
+  pod 'SWTableViewCell', '~> 0.3.7'
 end
 

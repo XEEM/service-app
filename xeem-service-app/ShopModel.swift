@@ -55,7 +55,10 @@ class ShopModel: NSObject {
         self.reviews = ReviewModel.initWithArray(dictionary.objectForKey("Reviews") as! [NSDictionary])
         self.quotes = Quotes.initWithArray(dictionary.objectForKey("Quotes") as! [NSDictionary])
         self.rating = dictionary.objectForKey("Rating") as? Float
-        self.requests = Request.initWithArray(dictionary.objectForKey("Requests") as! [NSDictionary])
+        
+        if let requestsDict = dictionary["Requests"] as? [NSDictionary] {
+            self.requests = Request.initWithArray(requestsDict)
+        }
         
         let request: MKDirectionsRequest = MKDirectionsRequest()
         request.source = MKMapItem.mapItemForCurrentLocation()

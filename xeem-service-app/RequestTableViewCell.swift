@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class RequestTableViewCell: UITableViewCell {
 
@@ -17,8 +18,9 @@ class RequestTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     var model: Request! {
         didSet{
-            nameLabel.text = "Ken Hoang"
-            timeLabel.text = "1 seconds ago"
+            nameLabel.text = model.transportation.name
+            timeLabel.text = model.createdDate.toString()
+            userAvatarImage.setImageWithURL(NSURL(string: (model?.transportation.imageUrls[0])!)!)
         }
     }
     override func awakeFromNib() {

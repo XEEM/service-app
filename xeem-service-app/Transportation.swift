@@ -22,6 +22,7 @@ class Transportation: NSObject {
     var type: TransportationType!
     var imageUrls: [String]!
     var requests: [Request]!
+    var owner: User!
     
     init(dictionary : NSDictionary) {
         self.dictionary = dictionary
@@ -30,7 +31,13 @@ class Transportation: NSObject {
         type = TransportationType(rawValue: dictionary["Type"] as! String)
         imageUrls = dictionary["ImageUrls"] as? [String]
         
-        requests = Request.initWithArray(dictionary["Requests"] as! [NSDictionary])
+        if let requestsDict = dictionary["Requests"] as? [NSDictionary] {
+            requests = Request.initWithArray(requestsDict)
+        }
+        
+        if let ownerDict = dictionary["Owner"] as? NSDictionary {
+            owner = User(dictionary: ownerDict)
+        }
     }
     
     class func TransWithArray(array: [NSDictionary]) -> [Transportation] {

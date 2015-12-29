@@ -19,9 +19,14 @@ class RequestsViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        getModel()
+        intervalUpdateModel()
     }
 
+    func intervalUpdateModel(){
+         var timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "getModel", userInfo: nil, repeats: true)
+    }
+    
+    
     func getModel() {
         let token = User.currentToken
         

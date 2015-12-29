@@ -37,8 +37,12 @@ class User: NSObject {
             address = dictionary["Address"] as? String
             phone = dictionary["Phone"] as? String
             avatarURL = NSURL(string: (dictionary["AvatarUrl"] as? String ?? "")!)
-            transList = Transportation.TransWithArray(dictionary["Transporations"] as! [NSDictionary])
-            defaultVehicles = transList![0] as Transportation?
+            
+            if dictionary["Transporations"] != nil {
+                transList = Transportation.TransWithArray(dictionary["Transporations"] as! [NSDictionary])
+                defaultVehicles = transList![0] as Transportation?
+            }
+
         }
     }
     

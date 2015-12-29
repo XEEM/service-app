@@ -20,6 +20,7 @@
 		416C1E681C3277AA00B815EA /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E651C3277AA00B815EA /* MKLayer.swift */; };
 		416C1E691C3277AA00B815EA /* MKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E661C3277AA00B815EA /* MKColor.swift */; };
 		416C1E6B1C328BF400B815EA /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416C1E6A1C328BF400B815EA /* Login.storyboard */; };
+		416C1E851C32DF1600B815EA /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E841C32DF1600B815EA /* UINavigationBar+Awesome.m */; };
 		41E44B0A1C3255F600215129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E44B091C3255F600215129 /* AppDelegate.swift */; };
 		41E44B0C1C3255F600215129 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E44B0B1C3255F600215129 /* RequestsViewController.swift */; };
 		41E44B0F1C3255F600215129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E44B0D1C3255F600215129 /* Main.storyboard */; };
@@ -43,6 +44,9 @@
 		416C1E651C3277AA00B815EA /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
 		416C1E661C3277AA00B815EA /* MKColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKColor.swift; sourceTree = "<group>"; };
 		416C1E6A1C328BF400B815EA /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		416C1E6C1C32DDD700B815EA /* xeem-service-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xeem-service-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		416C1E831C32DF1600B815EA /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		416C1E841C32DF1600B815EA /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		41E44B061C3255F600215129 /* xeem-service-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xeem-service-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E44B091C3255F600215129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41E44B0B1C3255F600215129 /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		416C1E621C32778200B815EA /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				416C1E7F1C32DEEE00B815EA /* CustomNV */,
 				416C1E631C32779E00B815EA /* MaterialUI */,
 			);
 			name = Library;
@@ -129,6 +134,15 @@
 				416C1E661C3277AA00B815EA /* MKColor.swift */,
 			);
 			name = MaterialUI;
+			sourceTree = "<group>";
+		};
+		416C1E7F1C32DEEE00B815EA /* CustomNV */ = {
+			isa = PBXGroup;
+			children = (
+				416C1E831C32DF1600B815EA /* UINavigationBar+Awesome.h */,
+				416C1E841C32DF1600B815EA /* UINavigationBar+Awesome.m */,
+			);
+			name = CustomNV;
 			sourceTree = "<group>";
 		};
 		41E44AFD1C3255F600215129 = {
@@ -162,6 +176,7 @@
 				41E44B101C3255F600215129 /* Assets.xcassets */,
 				41E44B121C3255F600215129 /* LaunchScreen.storyboard */,
 				41E44B151C3255F600215129 /* Info.plist */,
+				416C1E6C1C32DDD700B815EA /* xeem-service-app-Bridging-Header.h */,
 			);
 			path = "xeem-service-app";
 			sourceTree = "<group>";
@@ -309,6 +324,7 @@
 				416C1E551C326EE400B815EA /* Quotes.swift in Sources */,
 				416C1E681C3277AA00B815EA /* MKLayer.swift in Sources */,
 				416C1E5C1C3271BE00B815EA /* RequestTableViewCell.swift in Sources */,
+				416C1E851C32DF1600B815EA /* UINavigationBar+Awesome.m in Sources */,
 				416C1E561C326EE400B815EA /* Request.swift in Sources */,
 				416C1E521C326EE400B815EA /* User.swift in Sources */,
 				416C1E691C3277AA00B815EA /* MKColor.swift in Sources */,
@@ -431,10 +447,13 @@
 			baseConfigurationReference = 0AD72726DD5C806D8EED7E56 /* Pods-xeem-service-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "xeem-service-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hatu.xeem-service-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "xeem-service-app/xeem-service-app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -443,10 +462,12 @@
 			baseConfigurationReference = 53EADFF05B49000453703CE7 /* Pods-xeem-service-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "xeem-service-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hatu.xeem-service-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "xeem-service-app/xeem-service-app-Bridging-Header.h";
 			};
 			name = Release;
 		};
