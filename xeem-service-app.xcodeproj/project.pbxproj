@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		416C1E511C326EE400B815EA /* Transportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E4B1C326EE400B815EA /* Transportation.swift */; };
+		416C1E521C326EE400B815EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E4C1C326EE400B815EA /* User.swift */; };
+		416C1E531C326EE400B815EA /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E4D1C326EE400B815EA /* ShopModel.swift */; };
+		416C1E541C326EE400B815EA /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E4E1C326EE400B815EA /* ReviewModel.swift */; };
+		416C1E551C326EE400B815EA /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E4F1C326EE400B815EA /* Quotes.swift */; };
+		416C1E561C326EE400B815EA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E501C326EE400B815EA /* Request.swift */; };
+		416C1E5A1C326FAC00B815EA /* XEEMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E591C326FAC00B815EA /* XEEMService.swift */; };
+		416C1E5C1C3271BE00B815EA /* RequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E5B1C3271BE00B815EA /* RequestTableViewCell.swift */; };
+		416C1E611C3276F200B815EA /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E601C3276F200B815EA /* UIUtils.swift */; };
+		416C1E671C3277AA00B815EA /* MKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E641C3277AA00B815EA /* MKTextField.swift */; };
+		416C1E681C3277AA00B815EA /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E651C3277AA00B815EA /* MKLayer.swift */; };
+		416C1E691C3277AA00B815EA /* MKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C1E661C3277AA00B815EA /* MKColor.swift */; };
+		41E44B0A1C3255F600215129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E44B091C3255F600215129 /* AppDelegate.swift */; };
+		41E44B0C1C3255F600215129 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E44B0B1C3255F600215129 /* RequestsViewController.swift */; };
+		41E44B0F1C3255F600215129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E44B0D1C3255F600215129 /* Main.storyboard */; };
+		41E44B111C3255F600215129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E44B101C3255F600215129 /* Assets.xcassets */; };
+		41E44B141C3255F600215129 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E44B121C3255F600215129 /* LaunchScreen.storyboard */; };
+		768879CA8BC19FF1E9809609 /* Pods_xeem_service_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9799678BA678673B6F6C72F0 /* Pods_xeem_service_app.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AD72726DD5C806D8EED7E56 /* Pods-xeem-service-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xeem-service-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xeem-service-app/Pods-xeem-service-app.debug.xcconfig"; sourceTree = "<group>"; };
+		416C1E4B1C326EE400B815EA /* Transportation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transportation.swift; sourceTree = "<group>"; };
+		416C1E4C1C326EE400B815EA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		416C1E4D1C326EE400B815EA /* ShopModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
+		416C1E4E1C326EE400B815EA /* ReviewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
+		416C1E4F1C326EE400B815EA /* Quotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		416C1E501C326EE400B815EA /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		416C1E591C326FAC00B815EA /* XEEMService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XEEMService.swift; sourceTree = "<group>"; };
+		416C1E5B1C3271BE00B815EA /* RequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTableViewCell.swift; sourceTree = "<group>"; };
+		416C1E601C3276F200B815EA /* UIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
+		416C1E641C3277AA00B815EA /* MKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTextField.swift; sourceTree = "<group>"; };
+		416C1E651C3277AA00B815EA /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
+		416C1E661C3277AA00B815EA /* MKColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKColor.swift; sourceTree = "<group>"; };
+		41E44B061C3255F600215129 /* xeem-service-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xeem-service-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E44B091C3255F600215129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		41E44B0B1C3255F600215129 /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		41E44B0E1C3255F600215129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41E44B101C3255F600215129 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41E44B131C3255F600215129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		41E44B151C3255F600215129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53EADFF05B49000453703CE7 /* Pods-xeem-service-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xeem-service-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-xeem-service-app/Pods-xeem-service-app.release.xcconfig"; sourceTree = "<group>"; };
+		9799678BA678673B6F6C72F0 /* Pods_xeem_service_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xeem_service_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41E44B031C3255F600215129 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768879CA8BC19FF1E9809609 /* Pods_xeem_service_app.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		416C1E491C326E6800B815EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				416C1E4B1C326EE400B815EA /* Transportation.swift */,
+				416C1E4C1C326EE400B815EA /* User.swift */,
+				416C1E4D1C326EE400B815EA /* ShopModel.swift */,
+				416C1E4E1C326EE400B815EA /* ReviewModel.swift */,
+				416C1E4F1C326EE400B815EA /* Quotes.swift */,
+				416C1E501C326EE400B815EA /* Request.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		416C1E4A1C326E7200B815EA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				41E44B0B1C3255F600215129 /* RequestsViewController.swift */,
+				416C1E5B1C3271BE00B815EA /* RequestTableViewCell.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		416C1E571C326F3000B815EA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				41E44B0D1C3255F600215129 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		416C1E581C326F9D00B815EA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				416C1E591C326FAC00B815EA /* XEEMService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		416C1E5D1C32736300B815EA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				416C1E601C3276F200B815EA /* UIUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		416C1E621C32778200B815EA /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				416C1E631C32779E00B815EA /* MaterialUI */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		416C1E631C32779E00B815EA /* MaterialUI */ = {
+			isa = PBXGroup;
+			children = (
+				416C1E641C3277AA00B815EA /* MKTextField.swift */,
+				416C1E651C3277AA00B815EA /* MKLayer.swift */,
+				416C1E661C3277AA00B815EA /* MKColor.swift */,
+			);
+			name = MaterialUI;
+			sourceTree = "<group>";
+		};
+		41E44AFD1C3255F600215129 = {
+			isa = PBXGroup;
+			children = (
+				41E44B081C3255F600215129 /* xeem-service-app */,
+				41E44B071C3255F600215129 /* Products */,
+				5A54FA418AD1BF7319E6AA6E /* Pods */,
+				4F32B14FBEF3C9669B636F07 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		41E44B071C3255F600215129 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41E44B061C3255F600215129 /* xeem-service-app.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41E44B081C3255F600215129 /* xeem-service-app */ = {
+			isa = PBXGroup;
+			children = (
+				416C1E621C32778200B815EA /* Library */,
+				416C1E5D1C32736300B815EA /* Utils */,
+				416C1E581C326F9D00B815EA /* Services */,
+				416C1E571C326F3000B815EA /* Storyboards */,
+				416C1E4A1C326E7200B815EA /* ViewControllers */,
+				416C1E491C326E6800B815EA /* Models */,
+				41E44B091C3255F600215129 /* AppDelegate.swift */,
+				41E44B101C3255F600215129 /* Assets.xcassets */,
+				41E44B121C3255F600215129 /* LaunchScreen.storyboard */,
+				41E44B151C3255F600215129 /* Info.plist */,
+			);
+			path = "xeem-service-app";
+			sourceTree = "<group>";
+		};
+		4F32B14FBEF3C9669B636F07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9799678BA678673B6F6C72F0 /* Pods_xeem_service_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A54FA418AD1BF7319E6AA6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0AD72726DD5C806D8EED7E56 /* Pods-xeem-service-app.debug.xcconfig */,
+				53EADFF05B49000453703CE7 /* Pods-xeem-service-app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41E44B051C3255F600215129 /* xeem-service-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41E44B181C3255F600215129 /* Build configuration list for PBXNativeTarget "xeem-service-app" */;
+			buildPhases = (
+				CF422F725039E18C20593C08 /* Check Pods Manifest.lock */,
+				41E44B021C3255F600215129 /* Sources */,
+				41E44B031C3255F600215129 /* Frameworks */,
+				41E44B041C3255F600215129 /* Resources */,
+				D0B5B639341B3AED659405BA /* Embed Pods Frameworks */,
+				F4702C929A2966243F61A758 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "xeem-service-app";
+			productName = "xeem-service-app";
+			productReference = 41E44B061C3255F600215129 /* xeem-service-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		41E44AFE1C3255F600215129 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = hatu;
+				TargetAttributes = {
+					41E44B051C3255F600215129 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 41E44B011C3255F600215129 /* Build configuration list for PBXProject "xeem-service-app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41E44AFD1C3255F600215129;
+			productRefGroup = 41E44B071C3255F600215129 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41E44B051C3255F600215129 /* xeem-service-app */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41E44B041C3255F600215129 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41E44B141C3255F600215129 /* LaunchScreen.storyboard in Resources */,
+				41E44B111C3255F600215129 /* Assets.xcassets in Resources */,
+				41E44B0F1C3255F600215129 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CF422F725039E18C20593C08 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D0B5B639341B3AED659405BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xeem-service-app/Pods-xeem-service-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4702C929A2966243F61A758 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xeem-service-app/Pods-xeem-service-app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		41E44B021C3255F600215129 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416C1E551C326EE400B815EA /* Quotes.swift in Sources */,
+				416C1E681C3277AA00B815EA /* MKLayer.swift in Sources */,
+				416C1E5C1C3271BE00B815EA /* RequestTableViewCell.swift in Sources */,
+				416C1E561C326EE400B815EA /* Request.swift in Sources */,
+				416C1E521C326EE400B815EA /* User.swift in Sources */,
+				416C1E691C3277AA00B815EA /* MKColor.swift in Sources */,
+				416C1E511C326EE400B815EA /* Transportation.swift in Sources */,
+				416C1E611C3276F200B815EA /* UIUtils.swift in Sources */,
+				41E44B0C1C3255F600215129 /* RequestsViewController.swift in Sources */,
+				416C1E531C326EE400B815EA /* ShopModel.swift in Sources */,
+				41E44B0A1C3255F600215129 /* AppDelegate.swift in Sources */,
+				416C1E671C3277AA00B815EA /* MKTextField.swift in Sources */,
+				416C1E5A1C326FAC00B815EA /* XEEMService.swift in Sources */,
+				416C1E541C326EE400B815EA /* ReviewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		41E44B0D1C3255F600215129 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41E44B0E1C3255F600215129 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		41E44B121C3255F600215129 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41E44B131C3255F600215129 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		41E44B161C3255F600215129 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		41E44B171C3255F600215129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41E44B191C3255F600215129 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AD72726DD5C806D8EED7E56 /* Pods-xeem-service-app.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "xeem-service-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hatu.xeem-service-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		41E44B1A1C3255F600215129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53EADFF05B49000453703CE7 /* Pods-xeem-service-app.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "xeem-service-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hatu.xeem-service-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41E44B011C3255F600215129 /* Build configuration list for PBXProject "xeem-service-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41E44B161C3255F600215129 /* Debug */,
+				41E44B171C3255F600215129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41E44B181C3255F600215129 /* Build configuration list for PBXNativeTarget "xeem-service-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41E44B191C3255F600215129 /* Debug */,
+				41E44B1A1C3255F600215129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 41E44AFE1C3255F600215129 /* Project object */;
+}
