@@ -96,7 +96,7 @@ class XEEMService {
         self.callAPIWithURL(url, method: METHOD.PUT, header: nil, params: nil, onCompletion: onCompletion)
     }
     
-    class func getShopsByOwnerId(token: String, completion: (shops: [ShopModel]?, error: NSError?) -> Void){
+    func getShopsByOwnerId(token: String, completion: (shops: [ShopModel]?, error: NSError?) -> Void){
         let url = "http://xeem.apphb.com/api/user/shops"
 
         Alamofire.request(.GET, url, parameters: ["api_token": token]).responseJSON { (response) -> Void in
@@ -113,6 +113,25 @@ class XEEMService {
             }
         }
     }
+    
+    func acceptRequest(token: String, completion: (shops: [ShopModel]?, error: NSError?) -> Void){
+        let url = "http://xeem.apphb.com/api/user/shops"
+        
+        Alamofire.request(.GET, url, parameters: ["api_token": token]).responseJSON { (response) -> Void in
+            let jsonData = response.result.value
+            let error = response.result.error
+            if let error = error {
+                print("Get Shop error",error)
+                completion(shops: nil,error: error)
+            } else {
+                print(jsonData)
+                let shops = ShopModel.initShopModelWithArray(jsonData as! [NSDictionary])
+                completion(shops: shops,error: nil)
+                
+            }
+        }
+    }
+
     
     func callAPIWithURL(url: String, method:(METHOD), header:(NSDictionary?), params:(NSDictionary?), onCompletion:ServiceResponse) {
         self.internalCallApiWithURL(url, method: method, header: header, params: params, onCompletion: onCompletion)

@@ -8,9 +8,12 @@
 
 import UIKit
 import AFNetworking
+import MGSwipeTableCell
 
-class RequestTableViewCell: UITableViewCell {
+class RequestTableViewCell: MGSwipeTableCell  {
 
+    var indexPath: NSIndexPath!
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var userAvatarImage: UIImageView!
@@ -23,15 +26,5 @@ class RequestTableViewCell: UITableViewCell {
             userAvatarImage.setImageWithURL(NSURL(string: (model?.transportation.imageUrls[0])!)!)
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
+

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 class RequestsViewController: UIViewController {
 
@@ -19,18 +20,19 @@ class RequestsViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        intervalUpdateModel()
+
+//        intervalUpdateModel()
+        getModel()
     }
 
     func intervalUpdateModel(){
          var timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "getModel", userInfo: nil, repeats: true)
     }
     
-    
     func getModel() {
         let token = User.currentToken
         
-        XEEMService.getShopsByOwnerId(token!) { (shops, error) -> Void in
+        XEEMService.sharedInstance.getShopsByOwnerId(token!) { (shops, error) -> Void in
             self.shops = shops
             self.tableView.reloadData()
         }
@@ -60,14 +62,56 @@ extension RequestsViewController: UITableViewDataSource, UITableViewDelegate{
         return shops!.count
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return shops![section].name
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("RequestCell") as! RequestTableViewCell
         
         cell.model = shops[indexPath.section].requests![indexPath.row]
+        cell.indexPath = indexPath
+        cell.delegate = self
+        setCellButtons(cell)
         
         return cell
     }
+    
+    func setCellButtons(cell: RequestTableViewCell){
+        cell.leftButtons = [MGSwipeButton(title: "Accept", backgroundColor: UIColor.greenColor())]
+        cell.leftExpansion.fillOnTrigger = true
+        cell.leftExpansion.buttonIndex = 0
+        cell.leftSwipeSettings.transition = MGSwipeTransition.Drag
+        //configure right buttons
+        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
+            ,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.Rotate3D
+        cell.rightExpansion.buttonIndex = 0
+        cell.rightExpansion.fillOnTrigger = true
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
+    
+
 }
+
+extension RequestsViewController: MGSwipeTableCellDelegate{
+    // tap button
+    func swipeTableCell(cell: MGSwipeTableCell!, tappedButtonAtIndex index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool {
+        let indexPath = tableView.indexPathForCell(cell)
+        
+        // accept request by swipe from left to right
+        if direction == .LeftToRight {
+            tableView.beginUpdates()
+            shops[indexPath!.section].requests?.removeAtIndex(indexPath!.row)
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+            tableView.endUpdates()
+            return true
+        }
+        
+        return false
+    }
+}
+
