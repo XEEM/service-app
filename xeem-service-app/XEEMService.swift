@@ -114,19 +114,19 @@ class XEEMService {
         }
     }
     
-    func acceptRequest(token: String, completion: (shops: [ShopModel]?, error: NSError?) -> Void){
-        let url = "http://xeem.apphb.com/api/user/shops"
-        
-        Alamofire.request(.GET, url, parameters: ["api_token": token]).responseJSON { (response) -> Void in
+    func acceptRequest(token: String, requestToken: String, completion: (request: Request?, error: NSError?) -> Void){
+        //let url = "http://xeem.apphb.com/api/requests/\(requestToken)/accept"
+        let url = "http://xeem.apphb.com/api/requests/\(requestToken)/accept"
+        Alamofire.request(.POST, url, parameters: ["api_token": token]).responseJSON { (response) -> Void in
             let jsonData = response.result.value
             let error = response.result.error
             if let error = error {
                 print("Get Shop error",error)
-                completion(shops: nil,error: error)
+                completion(request: nil, error: error)
             } else {
                 print(jsonData)
-                let shops = ShopModel.initShopModelWithArray(jsonData as! [NSDictionary])
-                completion(shops: shops,error: nil)
+                let request = Request(dictionary: jsonData as! NSDictionary)
+                completion(request: request, error: nil)
                 
             }
         }

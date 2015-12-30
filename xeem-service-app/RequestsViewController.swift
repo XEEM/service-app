@@ -13,7 +13,7 @@ class RequestsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var shops: [ShopModel]!
-    
+    var loadedShops: [ShopModel]!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -86,8 +86,8 @@ extension RequestsViewController: UITableViewDataSource, UITableViewDelegate{
         cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
             ,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
         cell.rightSwipeSettings.transition = MGSwipeTransition.Rotate3D
-        cell.rightExpansion.buttonIndex = 0
-        cell.rightExpansion.fillOnTrigger = true
+//        cell.rightExpansion.buttonIndex = 0
+//        cell.rightExpansion.fillOnTrigger = true
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -107,6 +107,12 @@ extension RequestsViewController: MGSwipeTableCellDelegate{
             tableView.beginUpdates()
             shops[indexPath!.section].requests?.removeAtIndex(indexPath!.row)
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+            
+            // accept the request
+            let requestCell = cell as! RequestTableViewCell
+            XEEMService.sharedInstance.acceptRequest(User.currentToken!, requestToken: requestCell.model.id, completion: { (request, error) -> Void in
+                print("accepted request \(request)")
+            })
             tableView.endUpdates()
             return true
         }
