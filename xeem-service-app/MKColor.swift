@@ -43,6 +43,7 @@ extension UIColor {
         public static let GrayColor = UIColor(hex: 0xa0a09f)
         public static let LightGrayColor = UIColor(hex: 0xefefef)
         public static let WhiteColor = UIColor(hex: 0xFFFFFF)
+        public static let BlueLineMap = UIColor(hex: 0x3f98f6)
 
     }
 }

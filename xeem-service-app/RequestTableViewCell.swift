@@ -9,6 +9,7 @@
 import UIKit
 import AFNetworking
 import MGSwipeTableCell
+import DateTools
 
 class RequestTableViewCell: MGSwipeTableCell  {
 
@@ -22,9 +23,30 @@ class RequestTableViewCell: MGSwipeTableCell  {
     var model: Request! {
         didSet{
             nameLabel.text = model.transportation.name
-            timeLabel.text = model.createdDate.toString()
+//            let type: String = model.dictionary.objectForKey("Type") as? String
+            typeLabel.text = "Flat Tire"
+            
+            let timeAgoDate = model.createdDate
+            if let timeAgoDate = timeAgoDate {
+                timeLabel.text = timeAgoDate.timeAgoSinceNow()
+            } else {
+                timeLabel.text = "--"
+            }
+            
             userAvatarImage.setImageWithURL(NSURL(string: (model?.transportation.imageUrls[0])!)!)
         }
+    }
+    
+    
+    func setLayout() {
+        self.leftButtons = [MGSwipeButton(title: "Accept", backgroundColor: UIColor.greenColor())]
+        self.leftExpansion.fillOnTrigger = true
+        self.leftExpansion.buttonIndex = 0
+        self.leftSwipeSettings.transition = MGSwipeTransition.Drag
+        //configure right buttons
+        self.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
+            ,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
+        self.rightSwipeSettings.transition = MGSwipeTransition.Static
     }
 }
 

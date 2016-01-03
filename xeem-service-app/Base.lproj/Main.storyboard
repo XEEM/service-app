@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lix-Mr-2r3" id="ixt-Q8-KnF">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="95.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ken Hoang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzL-Xq-sQI">
@@ -112,5 +112,66 @@
             </objects>
             <point key="canvasLocation" x="88.533333333333331" y="1062.1600000000001"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="aBA-G3-yEi">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="1zj-Jn-dbh" customClass="MapViewController" customModule="xeem_service_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="njW-Sp-6Lu"/>
+                        <viewControllerLayoutGuide type="bottom" id="VMm-GJ-CcA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GGz-Tk-mul">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="P4d-7C-Cjm">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VMm-GJ-CcA" firstAttribute="top" secondItem="P4d-7C-Cjm" secondAttribute="bottom" id="39I-Di-wYf"/>
+                            <constraint firstItem="P4d-7C-Cjm" firstAttribute="top" secondItem="njW-Sp-6Lu" secondAttribute="bottom" constant="-20" id="5EK-dl-f6P"/>
+                            <constraint firstItem="P4d-7C-Cjm" firstAttribute="leading" secondItem="GGz-Tk-mul" secondAttribute="leading" id="dQc-I6-0t8"/>
+                            <constraint firstAttribute="trailing" secondItem="P4d-7C-Cjm" secondAttribute="trailing" id="z4c-qc-g45"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zvy-P3-66r">
+                        <barButtonItem key="leftBarButtonItem" image="ic_close_light" id="9hD-qm-drw">
+                            <color key="tintColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onDismissViewController:" destination="1zj-Jn-dbh" id="kWx-3O-rw9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="P4d-7C-Cjm" id="x33-O5-VIM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwY-Wv-br0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="1118"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rkZ-dk-wCF">
+            <objects>
+                <navigationController storyboardIdentifier="navigationBar" automaticallyAdjustsScrollViewInsets="NO" id="IOY-We-aJ9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C8Q-km-HUh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1zj-Jn-dbh" kind="relationship" relationship="rootViewController" id="FKl-Z4-sCH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rc-sH-Hml" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="1118"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="ic_close_light" width="33" height="33"/>
+    </resources>
 </document>

@@ -14,19 +14,26 @@ class RequestsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var shops: [ShopModel]!
     var loadedShops: [ShopModel]!
+    var timer: NSTimer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.dataSource = self
         tableView.delegate = self
-
-//        intervalUpdateModel()
-        getModel()
+        self.getModel()
+//        self.intervalUpdateModel()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.intervalUpdateModel()
     }
 
     func intervalUpdateModel(){
-         var timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "getModel", userInfo: nil, repeats: true)
+         timer = NSTimer.scheduledTimerWithTimeInterval(20.0, target: self, selector: "getModel", userInfo: nil, repeats: true)
     }
     
     func getModel() {
@@ -35,6 +42,7 @@ class RequestsViewController: UIViewController {
         XEEMService.sharedInstance.getShopsByOwnerId(token!) { (shops, error) -> Void in
             self.shops = shops
             self.tableView.reloadData()
+            print("lalalala")
         }
     }
     
@@ -72,22 +80,9 @@ extension RequestsViewController: UITableViewDataSource, UITableViewDelegate{
         cell.model = shops[indexPath.section].requests![indexPath.row]
         cell.indexPath = indexPath
         cell.delegate = self
-        setCellButtons(cell)
+        cell.setLayout()
         
         return cell
-    }
-    
-    func setCellButtons(cell: RequestTableViewCell){
-        cell.leftButtons = [MGSwipeButton(title: "Accept", backgroundColor: UIColor.greenColor())]
-        cell.leftExpansion.fillOnTrigger = true
-        cell.leftExpansion.buttonIndex = 0
-        cell.leftSwipeSettings.transition = MGSwipeTransition.Drag
-        //configure right buttons
-        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())
-            ,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
-        cell.rightSwipeSettings.transition = MGSwipeTransition.Rotate3D
-//        cell.rightExpansion.buttonIndex = 0
-//        cell.rightExpansion.fillOnTrigger = true
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -104,16 +99,30 @@ extension RequestsViewController: MGSwipeTableCellDelegate{
         
         // accept request by swipe from left to right
         if direction == .LeftToRight {
-            tableView.beginUpdates()
-            shops[indexPath!.section].requests?.removeAtIndex(indexPath!.row)
-            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
             
-            // accept the request
-            let requestCell = cell as! RequestTableViewCell
-            XEEMService.sharedInstance.acceptRequest(User.currentToken!, requestToken: requestCell.model.id, completion: { (request, error) -> Void in
-                print("accepted request \(request)")
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewControllerWithIdentifier("MapViewController") as! MapViewController
+            let navigationController = UINavigationController.init(rootViewController: vc)
+            
+            vc.request = shops[(indexPath?.section)!].requests![(indexPath?.row)!]
+            vc.shopModel = shops[(indexPath?.section)!]
+            self.navigationController?.presentViewController(navigationController, animated: true, completion: { () -> Void in
+                // timer invalidate
+                self.timer?.invalidate()
+                                
+                self.tableView.beginUpdates()
+                self.shops[indexPath!.section].requests?.removeAtIndex(indexPath!.row)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+                
+                // accept the request
+                let requestCell = cell as! RequestTableViewCell
+                XEEMService.sharedInstance.acceptRequest(User.currentToken!, requestToken: requestCell.model.id, completion: { (request, error) -> Void in
+                    print("accepted request \(request)")
+                })
+                self.tableView.endUpdates()
             })
-            tableView.endUpdates()
+
+            
             return true
         }
         

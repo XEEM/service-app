@@ -27,6 +27,8 @@
 		41E44B111C3255F600215129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E44B101C3255F600215129 /* Assets.xcassets */; };
 		41E44B141C3255F600215129 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E44B121C3255F600215129 /* LaunchScreen.storyboard */; };
 		768879CA8BC19FF1E9809609 /* Pods_xeem_service_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9799678BA678673B6F6C72F0 /* Pods_xeem_service_app.framework */; };
+		A6484BBD1C33E18800858846 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6484BBC1C33E18800858846 /* MapViewController.swift */; };
+		A6484BBF1C33F98000858846 /* DinhDocLap.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A6484BBE1C33F98000858846 /* DinhDocLap.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		41E44B151C3255F600215129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53EADFF05B49000453703CE7 /* Pods-xeem-service-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xeem-service-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-xeem-service-app/Pods-xeem-service-app.release.xcconfig"; sourceTree = "<group>"; };
 		9799678BA678673B6F6C72F0 /* Pods_xeem_service_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xeem_service_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6484BBC1C33E18800858846 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A6484BBE1C33F98000858846 /* DinhDocLap.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DinhDocLap.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 			children = (
 				41E44B0B1C3255F600215129 /* RequestsViewController.swift */,
 				416C1E5B1C3271BE00B815EA /* RequestTableViewCell.swift */,
+				A6484BBC1C33E18800858846 /* MapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 		41E44AFD1C3255F600215129 = {
 			isa = PBXGroup;
 			children = (
+				A6484BBE1C33F98000858846 /* DinhDocLap.gpx */,
 				41E44B081C3255F600215129 /* xeem-service-app */,
 				41E44B071C3255F600215129 /* Products */,
 				5A54FA418AD1BF7319E6AA6E /* Pods */,
@@ -259,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6484BBF1C33F98000858846 /* DinhDocLap.gpx in Resources */,
 				416C1E6B1C328BF400B815EA /* Login.storyboard in Resources */,
 				41E44B141C3255F600215129 /* LaunchScreen.storyboard in Resources */,
 				41E44B111C3255F600215129 /* Assets.xcassets in Resources */,
@@ -336,6 +343,7 @@
 				416C1E671C3277AA00B815EA /* MKTextField.swift in Sources */,
 				416C1E5A1C326FAC00B815EA /* XEEMService.swift in Sources */,
 				416C1E541C326EE400B815EA /* ReviewModel.swift in Sources */,
+				A6484BBD1C33E18800858846 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
