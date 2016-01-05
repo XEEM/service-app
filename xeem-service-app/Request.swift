@@ -34,7 +34,7 @@ class Request: NSObject {
         longitude = dictionary["Longitude"] as? Double
         text = String(dictionary["description"])
         
-        createdDate = (dictionary["CreatedDate"] as! String).toDate(DateFormat.Custom("yyyy-MM-dd'T'hh:mm:ss"))
+        createdDate = (dictionary["CreatedDate"] as! String).toDate(DateFormat.Custom("yyyy-MM-dd'T'hh:mm:ss.SSS"))
         status = RequestStatus(rawValue: dictionary["Status"] as! String)
         
         if let dict = dictionary["Transportation"] as? NSDictionary {

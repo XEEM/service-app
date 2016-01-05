@@ -23,26 +23,24 @@ class RequestsViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        self.getModel()
-//        self.intervalUpdateModel()
+//        self.getModel()
+        self.intervalUpdateModel()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.intervalUpdateModel()
     }
 
     func intervalUpdateModel(){
-         timer = NSTimer.scheduledTimerWithTimeInterval(20.0, target: self, selector: "getModel", userInfo: nil, repeats: true)
+         timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "getModel", userInfo: nil, repeats: true)
     }
     
     func getModel() {
         let token = User.currentToken
-        
         XEEMService.sharedInstance.getShopsByOwnerId(token!) { (shops, error) -> Void in
-            self.shops = shops
-            self.tableView.reloadData()
-            print("lalalala")
+                self.shops = shops
+                self.tableView.reloadData()
+                print("lalalala")
         }
     }
     
