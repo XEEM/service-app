@@ -167,7 +167,7 @@ extension RequestsViewController: UITableViewDataSource, UITableViewDelegate{
         cell.indexPath = indexPath
         cell.delegate = self
         cell.setLayout()
-        
+        cell.delegate1 = self
         return cell
     }
     
@@ -218,3 +218,9 @@ extension RequestsViewController: MGSwipeTableCellDelegate{
     }
 }
 
+extension RequestsViewController: RequestTableViewCellDelegate {
+    func requestTableViewCell(cell: RequestTableViewCell){
+        // remove cell
+        removeCanceledRequest(cell.model.id)
+    }
+}
