@@ -99,7 +99,7 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hTO-Hh-Ad4">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="hTO-Hh-Ad4">
                                                             <rect key="frame" x="8" y="8" width="80" height="80"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="9n0-rX-vjr"/>
@@ -261,6 +261,7 @@
     <resources>
         <image name="ic_close_light" width="33" height="33"/>
         <image name="icn_address" width="225" height="225"/>
+        <image name="image-placeholder" width="225" height="225"/>
         <image name="profile-placeholder" width="512" height="512"/>
         <image name="shop-cover" width="633" height="315"/>
     </resources>

@@ -33,8 +33,11 @@ class RequestTableViewCell: MGSwipeTableCell  {
 //            } else {
 //                timeLabel.text = "--"
 //            }
-            
-            userAvatarImage.setImageWithURL(NSURL(string: (model?.transportation.imageUrls[0])!)!)
+
+            userAvatarImage.setImageWithURL(NSURL(string: model.transportation.imageUrls[0])!, placeholderImage: UIImage(named: "image-placeholder"))
+//            switch model.transportation.type {
+//                case
+//            }
         }
     }
     
