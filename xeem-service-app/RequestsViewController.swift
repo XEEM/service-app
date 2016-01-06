@@ -93,8 +93,33 @@ class RequestsViewController: UIViewController {
             print("socket connected")
             self.socket.emit("sendUserId", User.currentToken!)
         }
+        
+        self.socket.on("cancel") { (data, ack) -> Void in
+            let requestId = data[0] as! String
+            print("cancel request id: \(requestId)")
+            self.removeCanceledRequest(requestId)
+            
+        }
     }
     
+    func removeCanceledRequest(requestid: String){
+        for var index = 0; index < tableView.numberOfRowsInSection(0); ++index{
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! RequestTableViewCell
+            
+            
+            if cell.model.id == requestid {
+                self.tableView.beginUpdates()
+                self.requests.removeAtIndex(index)
+                
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+                self.tableView.endUpdates()
+            }
+        }
+    }
+    
+
     func addNewRequest(request: Request){
         self.requests.append(request);
         self.tableView.reloadData()
