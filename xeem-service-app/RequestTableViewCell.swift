@@ -26,7 +26,7 @@ class RequestTableViewCell: MGSwipeTableCell  {
 //            let type: String = model.dictionary.objectForKey("Type") as? String
             typeLabel.text = model.text
 
-            timeLabel.text = "\(Helper.dateDistanceStringFromNow(model.createdDate)) ago"
+            timeLabel.text = "\(Helper.dateDistanceStringFromNow(model.createdDate))"
 //            let timeAgoDate = model.createdDate
 //            if let timeAgoDate = timeAgoDate {
 //                timeLabel.text = timeAgoDate.timeAgoSinceNow()
@@ -34,10 +34,22 @@ class RequestTableViewCell: MGSwipeTableCell  {
 //                timeLabel.text = "--"
 //            }
 
-            userAvatarImage.setImageWithURL(NSURL(string: model.transportation.imageUrls[0])!, placeholderImage: UIImage(named: "image-placeholder"))
-//            switch model.transportation.type {
-//                case
-//            }
+//            userAvatarImage.setImageWithURL(NSURL(string: model.transportation.imageUrls[0])!, placeholderImage: UIImage(named: "image-placeholder"))
+            
+            switch model.transportation.type! {
+            case .Bike:
+                userAvatarImage.image = UIImage(named: "ic_bike")
+                break
+            case .Car:
+                userAvatarImage.image = UIImage(named: "ic_car")
+                break
+            case .Motorbike:
+                userAvatarImage.image = UIImage(named: "ic_motorbike")
+                break
+            case .Scooter:
+                userAvatarImage.image = UIImage(named: "ic_scooter")
+                break
+            }
         }
     }
     
