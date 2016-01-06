@@ -9,10 +9,22 @@
 import UIKit
 import MGSwipeTableCell
 import Socket_IO_Client_Swift
-
+import AFNetworking
 class RequestsViewController: UIViewController {
 
+    @IBOutlet weak var shopAddressLabel: UILabel!
+    @IBOutlet weak var ownerNameLabel: UILabel!
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
+    var user: User! {
+        didSet{
+            ownerNameLabel.text = self.user.fullName
+            avatarImage.setImageWithURL(user.avatarURL!, placeholderImage: UIImage(named: "profile-placeholder"))
+        }
+    }
+    
     var shops: [ShopModel]!
     var loadedShops: [ShopModel]!
     var timer: NSTimer?
@@ -24,6 +36,8 @@ class RequestsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        user = User.currentUser
+        
         requests = [Request]()
         setupColorNavigationBar()
         setupSocket()
@@ -43,10 +57,10 @@ class RequestsViewController: UIViewController {
         //let img = UIImage()
         //self.navigationController?.navigationBar.shadowImage = img
         self.navigationController?.navigationBar.titleTextAttributes = attrs
-//        self.navigationController?.navigationBar.barTintColor = UIColor.MKColor.AppPrimaryColor
+        self.navigationController?.navigationBar.barTintColor = UIColor.MKColor.AppPrimaryColor
 
 //        navigationController!.navigationBar.shadowImage = UIImage()
-        navigationController!.navigationBar.barTintColor = UIColor(hex: 0xFF3B30)
+//        navigationController!.navigationBar.barTintColor = UIColor.MKColor.AppMainColor
 //        navigationController!.navigationBar.tintColor = UIColor.MKColor.AppMainColor
     }
     
@@ -151,14 +165,16 @@ extension RequestsViewController: MGSwipeTableCellDelegate{
             let vc = storyBoard.instantiateViewControllerWithIdentifier("MapViewController") as! MapViewController
             let navigationController = UINavigationController.init(rootViewController: vc)
             
-            vc.request = shops[(indexPath?.section)!].requests![(indexPath?.row)!]
-            vc.shopModel = shops[(indexPath?.section)!]
+            vc.request = requests![(indexPath?.row)!]
+            vc.shopModel = vc.request.repairShop
+            
             self.navigationController?.presentViewController(navigationController, animated: true, completion: { () -> Void in
                 // timer invalidate
                 self.timer?.invalidate()
                                 
                 self.tableView.beginUpdates()
-                self.shops[indexPath!.section].requests?.removeAtIndex(indexPath!.row)
+                self.requests.removeAtIndex(indexPath!.row)
+//                self.shops[indexPath!.section].requests?.removeAtIndex(indexPath!.row)
                 self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
                 
                 // accept the request

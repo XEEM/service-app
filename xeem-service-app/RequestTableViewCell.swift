@@ -24,14 +24,15 @@ class RequestTableViewCell: MGSwipeTableCell  {
         didSet{
             nameLabel.text = model.transportation.name
 //            let type: String = model.dictionary.objectForKey("Type") as? String
-            typeLabel.text = "Flat Tire"
-            
-            let timeAgoDate = model.createdDate
-            if let timeAgoDate = timeAgoDate {
-                timeLabel.text = timeAgoDate.timeAgoSinceNow()
-            } else {
-                timeLabel.text = "--"
-            }
+            typeLabel.text = model.text
+
+            timeLabel.text = "\(Helper.dateDistanceStringFromNow(model.createdDate)) ago"
+//            let timeAgoDate = model.createdDate
+//            if let timeAgoDate = timeAgoDate {
+//                timeLabel.text = timeAgoDate.timeAgoSinceNow()
+//            } else {
+//                timeLabel.text = "--"
+//            }
             
             userAvatarImage.setImageWithURL(NSURL(string: (model?.transportation.imageUrls[0])!)!)
         }

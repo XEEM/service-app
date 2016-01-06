@@ -26,6 +26,7 @@ class Request: NSObject {
     var latitude: Double?
     var longitude: Double?
     var text: String?
+    var repairShop: ShopModel!
     
     init(dictionary : NSDictionary) {
         self.dictionary = dictionary
@@ -33,13 +34,17 @@ class Request: NSObject {
         shopId = String(dictionary["RepairShopId"]!)
         latitude = dictionary["Latitude"] as? Double
         longitude = dictionary["Longitude"] as? Double
-        text = String(dictionary["description"])
+        text = dictionary["Description"] as? String
         
-        createdDate = (dictionary["CreatedDate"] as! String).toDate(DateFormat.Custom("yyyy-MM-dd'T'hh:mm:ss.SSS"))
+        createdDate = (dictionary["CreatedDate"] as! String).toDate(DateFormat.Custom("yyyy-MM-dd'T'hh:mm:ss"))
         status = RequestStatus(rawValue: dictionary["Status"] as! String)
         
         if let dict = dictionary["Transportation"] as? NSDictionary {
             transportation = Transportation(dictionary: dict)
+        }
+        
+        if let dict = dictionary["RepairShop"] as? NSDictionary {
+            repairShop = ShopModel(dictionary: dict)
         }
     }
     
