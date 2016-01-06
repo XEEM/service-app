@@ -13,6 +13,7 @@ enum RequestStatus: String  {
     case Accepted = "A"
     case Waiting = "W"
     case Finished = "F"
+    case Canceled = "C"
 }
 
 class Request: NSObject {

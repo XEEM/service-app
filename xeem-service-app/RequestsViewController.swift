@@ -8,6 +8,7 @@
 
 import UIKit
 import MGSwipeTableCell
+import Socket_IO_Client_Swift
 
 class RequestsViewController: UIViewController {
 
@@ -15,18 +16,76 @@ class RequestsViewController: UIViewController {
     var shops: [ShopModel]!
     var loadedShops: [ShopModel]!
     var timer: NSTimer?
+    var requests: [Request]!
     
-    
+    let socket = SocketIOClient(socketURL: "http://xeem-push-server.herokuapp.com")
+//    let socket = SocketIOClient(socketURL: "localhost:3000")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        requests = [Request]()
+        setupColorNavigationBar()
+        setupSocket()
         
         tableView.dataSource = self
         tableView.delegate = self
 //        self.getModel()
-        self.intervalUpdateModel()
+//        self.intervalUpdateModel()
     }
     
+    func setupColorNavigationBar(){
+        let attrs = [
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "SanFranciscoDisplay-Medium", size: 18)!
+        ]
+        
+        //let img = UIImage()
+        //self.navigationController?.navigationBar.shadowImage = img
+        self.navigationController?.navigationBar.titleTextAttributes = attrs
+//        self.navigationController?.navigationBar.barTintColor = UIColor.MKColor.AppPrimaryColor
+
+//        navigationController!.navigationBar.shadowImage = UIImage()
+        navigationController!.navigationBar.barTintColor = UIColor(hex: 0xFF3B30)
+//        navigationController!.navigationBar.tintColor = UIColor.MKColor.AppMainColor
+    }
+    
+    func setupSocket(){
+        self.addHandlers()
+        self.socket.connect()
+    }
+    
+    func addHandlers() {
+        self.socket.on("hello") {[weak self] data, ack in
+            print("Hello event:\(data)")
+        }
+
+        self.socket.on("requestSent") { (data, ack) -> Void in
+            let requestId = data[0] as! String
+            
+            print("requestId:\(requestId)")
+        }
+        
+        self.socket.on("requestSent2") { (data, ack) -> Void in
+            let data = data[0] as! NSDictionary
+            
+            let request = Request(dictionary: data)
+            self.addNewRequest(request)
+            
+            print("requestId:\(data)")
+        }
+        
+        self.socket.on("connect") { (data, ack) -> Void in
+            print("socket connected")
+            self.socket.emit("sendUserId", User.currentToken!)
+        }
+    }
+    
+    func addNewRequest(request: Request){
+        self.requests.append(request);
+        self.tableView.reloadData()
+        
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
     }
@@ -53,29 +112,19 @@ class RequestsViewController: UIViewController {
 extension RequestsViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if shops == nil {
-            return 0
-        }
+//        if shops == nil {
+//            return 0
+//        }
+//        
+//        return (shops![section].requests?.count)!
         
-        return (shops![section].requests?.count)!
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if shops == nil {
-            return 0
-        }
-        
-        return shops!.count
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return shops![section].name
+        return self.requests.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("RequestCell") as! RequestTableViewCell
         
-        cell.model = shops[indexPath.section].requests![indexPath.row]
+        cell.model = self.requests![indexPath.row]
         cell.indexPath = indexPath
         cell.delegate = self
         cell.setLayout()

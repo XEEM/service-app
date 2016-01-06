@@ -15,5 +15,6 @@ target 'xeem-service-app' do
   pod 'SwiftDate', '~> 2.0'
   pod 'SWTableViewCell', '~> 0.3.7'
   pod 'MGSwipeTableCell'
+  pod 'Socket.IO-Client-Swift'
 end
 
